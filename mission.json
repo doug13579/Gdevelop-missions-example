@@ -680,16 +680,6 @@
           "actions": [
             {
               "type": {
-                "value": "ArrayTools::GlobalShuffle"
-              },
-              "parameters": [
-                "",
-                "Missions",
-                ""
-              ]
-            },
-            {
-              "type": {
                 "value": "SetNumberVariable"
               },
               "parameters": [
@@ -708,6 +698,33 @@
             }
           ],
           "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VariableChildCount"
+                  },
+                  "parameters": [
+                    "Missions",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ArrayTools::GlobalShuffle"
+                  },
+                  "parameters": [
+                    "",
+                    "Missions",
+                    ""
+                  ]
+                }
+              ]
+            },
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [],
@@ -960,11 +977,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
@@ -1409,39 +1421,6 @@
           "conditions": [
             {
               "type": {
-                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
-              },
-              "parameters": [
-                "DoneButton",
-                ""
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "RemoveVariableAt"
-              },
-              "parameters": [
-                "Missions",
-                "CurrentMission"
-              ]
-            },
-            {
-              "type": {
-                "value": "PopScene"
-              },
-              "parameters": [
-                ""
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
                 "value": "StringVariable"
               },
               "parameters": [
@@ -1473,6 +1452,39 @@
                 "DoneButton",
                 "200",
                 "500",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "DoneButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "RemoveVariableAt"
+              },
+              "parameters": [
+                "Missions",
+                "CurrentMission"
+              ]
+            },
+            {
+              "type": {
+                "value": "PopScene"
+              },
+              "parameters": [
                 ""
               ]
             }
